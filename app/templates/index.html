@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="align-items-center justify-content-center vh-100">
+    <form method="post" action="{{ url_for('index') }}">
+        <div class="row">
+            <div class="col">
+                <input 
+                    type="text"
+                    placeholder="Party size"
+                    name="size"
+                >
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="submit">
+                    Log Party
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
