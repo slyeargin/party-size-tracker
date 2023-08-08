@@ -1,16 +1,27 @@
 version: '1.0'
 
 services:
-  app:
+  api:
     container_name: api
     image: api
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./api/Dockerfile
+    ports:
+      - "81:81"
+    depends_on:
+      - db
+
+  ui:
+    container_name: ui
+    image: ui
+    build:
+      context: .
+      dockerfile: ./ui/Dockerfile
     ports:
       - "80:80"
     depends_on:
-      - db
+      - api
   
   db:
     container_name: db
